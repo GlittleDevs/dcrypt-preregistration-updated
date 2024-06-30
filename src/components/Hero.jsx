@@ -22,8 +22,14 @@ const Hero = () => {
     >
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
+          <div className="w-full overflow-hidden bottom-4 bg-black bg-opacity-50 text-white py-2 mb-8">
+            <div className="whitespace-nowrap animate-marquee h5">
+              You need to access the site on a laptop or PC to access DCRYPT as
+              it is not compatible with mobiles or tablets.
+            </div>
+          </div>
           <h1 className="h1 mb-6">
-            Explore the possibilities to&nbsp;Hack your Success&nbsp; with {` `}
+            Hack your Success&nbsp; with {` `}
             <span className="inline-block relative">
               DCRYPT{" "}
               <img
@@ -36,13 +42,11 @@ const Hero = () => {
             </span>
           </h1>
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            {/* Unleash the power of AI within Brainwave. Upgrade your productivity
-            with Brainwave, the open AI chat app. */}
             Join us in revolutionizing how we learn to code and get the
             spotlight we deserve.
           </p>
           <Button href="#pricing" white>
-            Pre Register Now
+            Get Started Now
           </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
@@ -53,32 +57,13 @@ const Hero = () => {
               <div className="aspect-[33/40] md:aspect-[688/490] lg:aspect-[1024/490] rounded-b-[0.9rem] overflow-hidden">
                 <iframe
                   id="demo"
-                  src="https://drive.google.com/file/d/1oNrDTYBzJe_9C_2ri0DYJhxOY6qyv4Ti/preview"
+                  src="https://drive.google.com/file/d/1uY_3f5hbzdMvDPD8OWX8ElHv-3vm1LMa/preview"
                   className="w-full h-full"
                   style={{ height: "490px", transition: "all 0.3s" }}
                   title="Problem Solution Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-
-                {/* <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" /> */}
-
-                {/* <ScrollParallax isAbsolutelyPositioned>
-                  <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
-                    {heroIcons.map((icon, index) => (
-                      <li className="p-5" key={index}>
-                        <img src={icon} width={24} height={25} alt={icon} />
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollParallax> */}
-
-                {/* <ScrollParallax isAbsolutelyPositioned>
-                  <Notification
-                    className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
-                    title="Code generation"
-                  />
-                </ScrollParallax> */}
               </div>
             </div>
 
@@ -97,12 +82,34 @@ const Hero = () => {
           <BackgroundCircles />
         </div>
 
-        {/* <CompanyLogos className="hidden relative z-10 mt-20 lg:block" /> */}
+        <BottomLine />
       </div>
-
-      <BottomLine />
     </Section>
   );
 };
+
+// Tailwind CSS for marquee animation
+const styles = `
+  @layer utilities {
+    .animate-marquee {
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  }
+`;
+
+// Inject styles into the page
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
 
 export default Hero;
